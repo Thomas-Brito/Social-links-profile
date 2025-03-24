@@ -1,0 +1,96 @@
+:root {
+  /* Cores */
+  --branco: hsl(0, 0%, 100%);
+  --cinza-700: hsl(0, 0%, 20%);
+  --cinza-800: hsl(0, 0%, 12%);
+  --cinza-900: hsl(0, 0%, 8%);
+  --verde: hsl(75, 94%, 57%);
+  /* Fontes */
+  /* Título: peso 600, tamanho 24px */
+  --fonte-1: 600 clamp(1.25rem, 1.17857142857143rem + 0.357142857142857vw, 1.5rem)/150% "Inter";
+  /* Subtítulo e botões: peso 700, tamanho 14px */
+  --fonte-2: 700 clamp(0.75rem, 0.714285714285714rem + 0.178571428571429vw, 0.875rem)/150% "Inter";
+  /* Descrição: peso 400, tamanho 14px */
+  --fonte-3: 400 clamp(0.75rem, 0.714285714285714rem + 0.178571428571429vw, 0.875rem)/150% "Inter";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Inter", sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  align-items: center;
+  background-color: var(--cinza-900);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+main {
+  background-color: var(--cinza-800);
+  border-radius: 0.625rem;
+  color: var(--branco);
+  padding: 1.5rem 2.25rem;
+  text-align: center;
+  width: clamp(20rem, 75vw, 24rem);
+}
+
+.jessica {
+  clip-path: circle(50%);
+  width: 6rem;
+}
+
+.fonte-1 {
+  font: var(--fonte-1);
+}
+
+.fonte-2 {
+  font: var(--fonte-2);
+}
+
+.fonte-3 {
+  font: var(--fonte-3);
+}
+
+.verde {
+  color: var(--verde);
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.botao {
+  background-color: var(--cinza-700);
+  border-radius: 0.5rem;
+  color: var(--branco);
+  display: block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+}
+
+.botao:hover {
+  background-color: var(--verde);
+  color: var(--cinza-800);
+  cursor: pointer;
+}
+
+.attribution { 
+  font-size: 11px; text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
