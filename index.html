@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css"/>
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,19 +10,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Social links profile</title>
 </head>
-<body>
-  <main>
+
+<body class="cor-fundo-1">
+
+  <aside id="minha-modal" class="modal">
+    <div class="conteudo-modal cor-fundo-1">
+      <p class="fonte-1 cor-fonte-2">Choose the theme:</p>
+      <span class="fechar-modal cor-fonte-2">&times;</span>
+      <form>
+        <input type="radio" id="default" name="tema" value="light-dark" checked/>
+        <label for="default" class="fonte-4 cor-fonte-1">System default</label><br/>
+        <input type="radio" id="light" name="tema" value="light"/>
+        <label for="light" class="fonte-4 cor-fonte-1">Light</label><br/>
+        <input type="radio" id="dark" name="tema" value="dark"/>
+        <label for="dark" class="fonte-4 cor-fonte-1">Dark</label><br/>
+      </form>
+    </div>
+  </aside>
+  <button id="abrir-modal" class="tema" title="Theme">&#127763;</button>
+
+  <main class="cor-fundo-2 cor-fonte-1">
     <img class="jessica" alt="Jessica's color photo" src="assets/images/avatar-jessica.jpeg"/>
     <h1 class="fonte-1">Jessica Randall</h1>
-    <p class="fonte-2 verde">London, United Kingdom</p>
+    <p class="fonte-2 cor-fonte-2">London, United Kingdom</p>
     <p class="fonte-3">"Front-end developer and avid reader."</p>
     <nav>
       <ul>
-        <li><a class="botao fonte-2" href="">GitHub</a></li>
-        <li><a class="botao fonte-2" href="">Frontend Mentor</a></li>
-        <li><a class="botao fonte-2" href="">LinkedIn</a></li>
-        <li><a class="botao fonte-2" href="">Twitter</a></li>
-        <li><a class="botao fonte-2" href="">Instagram</a></li>
+        <li><a class="botao fonte-2 cor-fundo-3 cor-fonte-1" href="">GitHub</a></li>
+        <li><a class="botao fonte-2 cor-fundo-3 cor-fonte-1" href="">Frontend Mentor</a></li>
+        <li><a class="botao fonte-2 cor-fundo-3 cor-fonte-1" href="">LinkedIn</a></li>
+        <li><a class="botao fonte-2 cor-fundo-3 cor-fonte-1" href="">Twitter</a></li>
+        <li><a class="botao fonte-2 cor-fundo-3 cor-fonte-1" href="">Instagram</a></li>
       </ul>
     </nav>
     </main>
@@ -30,5 +48,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
+  <script src="script.js"></script>
 </body>
 </html>

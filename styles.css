@@ -1,43 +1,133 @@
-:root {
-  /* Cores */
-  --branco: hsl(0, 0%, 100%);
-  --cinza-700: hsl(0, 0%, 20%);
-  --cinza-800: hsl(0, 0%, 12%);
-  --cinza-900: hsl(0, 0%, 8%);
-  --verde: hsl(75, 94%, 57%);
-  /* Fontes */
-  /* Título: peso 600, tamanho 24px */
-  --fonte-1: 600 clamp(1.25rem, 1.17857142857143rem + 0.357142857142857vw, 1.5rem)/150% "Inter";
-  /* Subtítulo e botões: peso 700, tamanho 14px */
-  --fonte-2: 700 clamp(0.75rem, 0.714285714285714rem + 0.178571428571429vw, 0.875rem)/150% "Inter";
-  /* Descrição: peso 400, tamanho 14px */
-  --fonte-3: 400 clamp(0.75rem, 0.714285714285714rem + 0.178571428571429vw, 0.875rem)/150% "Inter";
-}
-
 * {
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: "Inter", sans-serif;
-  height: 100%;
-  width: 100%;
+:root {
+  color-scheme: light dark;
+
+  /* Título: peso 600, tamanho 24px */
+  --fonte-1: 600 clamp(1.25rem, 1.17857142857143rem + 0.357142857142857vw, 1.5rem)/150% "Inter", sans-serif;
+  /* Subtítulo e botões: peso 700, tamanho 14px */
+  --fonte-2: 700 clamp(0.75rem, 0.714285714285714rem + 0.178571428571429vw, 0.875rem)/150% "Inter", sans-serif;
+  /* Descrição: peso 400, tamanho 14px */
+  --fonte-3: 400 clamp(0.75rem, 0.714285714285714rem + 0.178571428571429vw, 0.875rem)/150% "Inter", sans-serif;
+  --fonte-4: 400 clamp(0.75rem, 0.714285714285714rem + 0.178571428571429vw, 0.875rem)/200% "Inter", sans-serif;
 }
 
-body {
+:root[data-theme='light'] {
+  --cor-fonte-1: hsl(0, 0%, 0%);
+  --cor-fonte-2: hsl(75, 94%, 33%);
+  --cor-fundo-1: hsl(0, 0%, 92%);
+  --cor-fundo-2: hsl(0, 0%, 88%);
+  --cor-fundo-3: hsl(0, 0%, 80%);
+}
+
+:root[data-theme='dark'] {
+  --cor-fonte-1: hsl(0, 0%, 100%);
+  --cor-fonte-2: hsl(75, 94%, 57%);
+  --cor-fundo-1: hsl(0, 0%, 8%);
+  --cor-fundo-2: hsl(0, 0%, 12%);
+  --cor-fundo-3: hsl(0, 0%, 20%);
+}
+
+:root[data-theme='light-dark'] {
+  --cor-fonte-1: light-dark(hsl(0, 0%, 0%), hsl(0, 0%, 100%));
+  --cor-fonte-2: light-dark(hsl(75, 94%, 33%), hsl(75, 94%, 57%));
+  --cor-fundo-1: light-dark(hsl(0, 0%, 92%), hsl(0, 0%, 8%));
+  --cor-fundo-2: light-dark(hsl(0, 0%, 88%), hsl(0, 0%, 12%));
+  --cor-fundo-3: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%));
+}
+
+.cor-fonte-1 { color: var(--cor-fonte-1); }
+.cor-fonte-2 { color: var(--cor-fonte-2); }
+
+.cor-fundo-1 { background-color: var(--cor-fundo-1); }
+.cor-fundo-2 { background-color: var(--cor-fundo-2); }
+.cor-fundo-3 { background-color: var(--cor-fundo-3); }
+
+.fonte-1 { font: var(--fonte-1); }
+.fonte-2 { font: var(--fonte-2); }
+.fonte-3 { font: var(--fonte-3); }
+.fonte-4 { font: var(--fonte-4); }
+
+html, body {
   align-items: center;
-  background-color: var(--cinza-900);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: auto;
+  margin: 0;
+  min-height: 100%;
+}
+
+.tema {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  opacity: 0.7;
+  padding: 1rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.tema:hover {
+  background-color: var(--cor-fundo-1);
+  cursor: pointer;
+}
+
+/* Estilo da modal */
+.modal {
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Estilo do conteúdo da modal  */
+.conteudo-modal {
+  border: 1px solid #888;
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 15% auto;
+  max-width: 20rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+/* Estilo do botão de fechar da modal  */
+.fechar-modal {
+  align-self: center;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.fechar-modal:hover,
+.fechar-modal:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para os botões de mudança de cor da modal interativa */
+form {
+  text-align: left;
+}
+
+input:hover, label:hover {
+  cursor: pointer;
 }
 
 main {
-  background-color: var(--cinza-800);
   border-radius: 0.625rem;
-  color: var(--branco);
   padding: 1.5rem 2.25rem;
   text-align: center;
   width: clamp(20rem, 75vw, 24rem);
@@ -46,22 +136,6 @@ main {
 .jessica {
   clip-path: circle(50%);
   width: 6rem;
-}
-
-.fonte-1 {
-  font: var(--fonte-1);
-}
-
-.fonte-2 {
-  font: var(--fonte-2);
-}
-
-.fonte-3 {
-  font: var(--fonte-3);
-}
-
-.verde {
-  color: var(--verde);
 }
 
 ul {
@@ -73,9 +147,7 @@ li {
 }
 
 .botao {
-  background-color: var(--cinza-700);
   border-radius: 0.5rem;
-  color: var(--branco);
   display: block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
@@ -83,14 +155,14 @@ li {
 }
 
 .botao:hover {
-  background-color: var(--verde);
-  color: var(--cinza-800);
+  background-color: var(--cor-fonte-2);
+  color: var(--cor-fundo-2);
   cursor: pointer;
 }
 
-.attribution { 
+/* .attribution { 
   font-size: 11px; text-align: center;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
-}
+} */
